@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5bf1736f-06c3-4a0e-b1ed-3ffdf80f210e" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2eBL1yAyhldyvJrCyIj3qzefhRy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.backend/Dockerfile builder.executor": "Run",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "HTTP Request.generated-requests | #4.executor": "Run",
+    "JUnit.pl.emilkulka.expensesapp.ExpenseTest in expenses-app.executor": "Run",
+    "JUnit.pl.emilkulka.expensesapp.validator.expense in expenses-app.executor": "Run",
+    "JUnit.validEmailTest.containsAtSign.executor": "Run",
+    "JUnit.validEmailTest.containsOneAtSign.executor": "Run",
+    "JUnit.validEmailTest.isEmailValid.executor": "Run",
+    "JUnit.validEmailTest.itDenyInvalidEmailFormat.executor": "Run",
+    "JUnit.validEmailTest.validEmailFormat.executor": "Debug",
+    "JUnit.validExpenseDateTest.itDenyDateFromFuture.executor": "Run",
+    "JUnit.validExpenseTypeTest.isExpenseTypeValid.executor": "Debug",
+    "JUnit.validExpenseTypeTest.itDenyInvalidType.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ExpensesAppApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/emil5/IdeaProjects/expenses-app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pl.emilkulka.expensesapp.expense.exception" />
+      <recent name="pl.emilkulka.expensesapp.expense" />
+      <recent name="pl.emilkulka.expensesapp.app_user.exception" />
+      <recent name="pl.emilkulka.expensesapp.app_user" />
+      <recent name="pl.emilkulka.expensesapp.exception" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\emil5\IdeaProjects\expenses-app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.backend/Dockerfile builder">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="pl.emilkulka.expensesapp.ExpenseTest in expenses-app" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="expenses-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.emilkulka.expensesapp.ExpenseTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.emilkulka.expensesapp.ExpenseTest" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="validExpenseTypeTest.itDenyInvalidType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="expenses-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.emilkulka.expensesapp.ExpenseTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.emilkulka.expensesapp.ExpenseTest" />
+      <option name="MAIN_CLASS_NAME" value="pl.emilkulka.expensesapp.ExpenseTest.validExpenseTypeTest" />
+      <option name="METHOD_NAME" value="itDenyInvalidType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="expenses-app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="expenses-app" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpensesAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="expenses-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.emilkulka.expensesapp.ExpensesAppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
+      <method v="2" />
+    </configuration>
+    <configuration name="backend/Dockerfile builder" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="maven3.8.5-openjdk-17_builder" />
+          <option name="buildCliOptions" value="--target builder" />
+          <option name="buildKitEnabled" value="true" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="backend/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.backend/Dockerfile builder" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="JUnit.validExpenseTypeTest.itDenyInvalidType" />
+        <item itemvalue="JUnit.pl.emilkulka.expensesapp.ExpenseTest in expenses-app" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5bf1736f-06c3-4a0e-b1ed-3ffdf80f210e" name="Changes" comment="" />
+      <created>1711372814286</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711372814286</updated>
+      <workItem from="1711372816258" duration="2528000" />
+      <workItem from="1711467752520" duration="15792000" />
+      <workItem from="1711525925160" duration="13316000" />
+      <workItem from="1712214207936" duration="1550000" />
+      <workItem from="1712567279046" duration="768000" />
+      <workItem from="1712761713172" duration="45000" />
+      <workItem from="1713087889388" duration="11000" />
+      <workItem from="1713089888562" duration="39000" />
+      <workItem from="1713096990929" duration="96000" />
+      <workItem from="1713879821739" duration="686000" />
+      <workItem from="1714305315416" duration="12238000" />
+      <workItem from="1714329551363" duration="904000" />
+      <workItem from="1715184528664" duration="25000" />
+      <workItem from="1729857203537" duration="1465000" />
+      <workItem from="1729861441706" duration="38300000" />
+      <workItem from="1729964069344" duration="48000" />
+      <workItem from="1729964126307" duration="1739000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
