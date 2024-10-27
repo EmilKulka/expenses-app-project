@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bf1736f-06c3-4a0e-b1ed-3ffdf80f210e" name="Changes" comment="" />
+    <list default="true" id="5bf1736f-06c3-4a0e-b1ed-3ffdf80f210e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +64,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.ExpensesAppApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/emil5/IdeaProjects/expenses-app",
     "node.js.detected.package.eslint": "true",
@@ -144,7 +146,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="backend/Dockerfile builder" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
@@ -200,7 +204,8 @@
       <workItem from="1729857203537" duration="1465000" />
       <workItem from="1729861441706" duration="38300000" />
       <workItem from="1729964069344" duration="48000" />
-      <workItem from="1729964126307" duration="1739000" />
+      <workItem from="1729964126307" duration="2408000" />
+      <workItem from="1729966978077" duration="1740000" />
     </task>
     <servers />
   </component>
