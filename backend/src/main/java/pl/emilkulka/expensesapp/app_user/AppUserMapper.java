@@ -7,7 +7,7 @@ import pl.emilkulka.expensesapp.app_user.dto.AppUserDto;
 
 @Mapper
 public interface AppUserMapper {
-    AppUserMapper INSTANCE  = Mappers.getMapper(AppUserMapper.class);
+    AppUserMapper INSTANCE = Mappers.getMapper(AppUserMapper.class);
 
     @Mapping(source = "userName", target = "userName")
     @Mapping(source = "email", target = "email")

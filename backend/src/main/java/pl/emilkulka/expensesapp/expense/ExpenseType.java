@@ -1,8 +1,8 @@
 package pl.emilkulka.expensesapp.expense;
-
-public enum ExpenseType {
+public enum ExpenseType{
     GROCERIESANDCHEMICALS,
     SHOESANDCLOTHES,
     ACCESORIES,
-    REGULARPAYMENTS
+    REGULARPAYMENTS;
+
 }

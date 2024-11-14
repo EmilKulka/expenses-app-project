@@ -32,16 +32,17 @@ public class ExpenseService {
     }
 
     @Transactional
-    public void updateExpense(UUID expenseId, ExpenseDto newExpense) {
+    public void updateExpense(UUID expenseId, ExpenseDto expenseDto) {
         Expense expense = getExpenseById(expenseId);
 
-        expense.setDescription(newExpense.getDescription());
-        expense.setType(newExpense.getType());
-        expense.setPrice(newExpense.getPrice());
-        expense.setDate(newExpense.getDate());
-        expense.setImportant(newExpense.isImportant());
+        expense.setDescription(expenseDto.getDescription());
+        expense.setType(expenseDto.getType());
+        expense.setPrice(expenseDto.getPrice());
+        expense.setDate(expenseDto.getDate());
+        expense.setImportant(expenseDto.isImportant());
     }
 
+    @Transactional
     public void deleteExpense(UUID expenseId) {
         Expense expense = getExpenseById(expenseId);
         expenseRepository.delete(expense);

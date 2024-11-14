@@ -12,6 +12,7 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/expense")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ExpenseController {
     private final ExpenseService expenseService;
 

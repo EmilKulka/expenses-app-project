@@ -5,7 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bf1736f-06c3-4a0e-b1ed-3ffdf80f210e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/advice/ErrorDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/advice/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/pl/emilkulka/expensesapp/http_security/AdminEndpointsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/pl/emilkulka/expensesapp/http_security/AppUserEndpointsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/pl/emilkulka/expensesapp/http_security/utils/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_user/AppUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_user/AppUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_user/AppUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_user/AppUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/Expense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/security/AppUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/security/AppUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/expense/Expense.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/expense/Expense.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/expense/ExpenseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/expense/ExpenseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/expense/ExpenseType.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/expense/ExpenseType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/pl/emilkulka/expensesapp/service/AppUserDetailsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/generated-sources/annotations/pl/emilkulka/expensesapp/app_user/AppUserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/generated-sources/annotations/pl/emilkulka/expensesapp/app_user/AppUserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/generated-sources/annotations/pl/emilkulka/expensesapp/expense/ExpenseMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/generated-sources/annotations/pl/emilkulka/expensesapp/expense/ExpenseMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/pl/emilkulka/expensesapp/ExpenseTest/validExpenseDateTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/pl/emilkulka/expensesapp/ExpenseTest/validExpenseDescriptionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/pl/emilkulka/expensesapp/ExpenseTest/validExpensePriceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/pl/emilkulka/expensesapp/ExpenseTest/validExpenseTypeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/pl/emilkulka/expensesapp/UserTest/validEmailTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +236,10 @@
       <workItem from="1729861441706" duration="38300000" />
       <workItem from="1729964069344" duration="48000" />
       <workItem from="1729964126307" duration="2408000" />
-      <workItem from="1729966978077" duration="1740000" />
+      <workItem from="1729966978077" duration="1923000" />
+      <workItem from="1731353192698" duration="69000" />
+      <workItem from="1731353412304" duration="78000" />
+      <workItem from="1731435906157" duration="1780000" />
     </task>
     <servers />
   </component>

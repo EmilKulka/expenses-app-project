@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.emilkulka.expensesapp.app_user.AppUser;
 import pl.emilkulka.expensesapp.app_user.AppUserRepository;
-import pl.emilkulka.expensesapp.security.AppUserDetails;
 
 
 @Service
