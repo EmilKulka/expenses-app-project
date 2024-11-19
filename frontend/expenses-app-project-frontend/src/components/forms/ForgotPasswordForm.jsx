@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'; 
-import { registerNewAppuser } from '../../api/Register';
+import { Link } from 'react-router-dom';
+import { resetAppUserPassword } from '../../api/ResetPassword';
 
-const RegisterForm = () => {
-    const [username, setUsername] = useState('');
+const ResetPasswordForm = () => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [oldPassword, setOldPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState(null);
 
-    const handleRegister = async (e) => {
+    const handleAppUserResetPassword = async (e) => {
         e.preventDefault();
 
         const requestBody =  {
-            "userName": username,
             "email": email,
-            "password": password
+            "oldPassword": oldPassword,
+            "newPassword": newPassword
         };
 
-        const result = await registerNewAppuser(requestBody); 
+        const result = await resetAppUserPassword(requestBody); 
 
         if (result.success) {
             setMessage(result.data);
@@ -31,17 +31,8 @@ const RegisterForm = () => {
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
           <Card style={{ width: '20rem' }} className="p-4">
-            <h2 className="text-center mb-4">Sign up</h2>
-            <Form onSubmit={handleRegister}>
-              <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Control
-                  type="text"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </Form.Group>
+            <h2 className="text-center mb-4">Reset password</h2>
+            <Form onSubmit={handleAppUserResetPassword}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   type="text"
@@ -51,19 +42,28 @@ const RegisterForm = () => {
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="formBasicOldPassword">
                 <Form.Control
                   type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter old password"
+                  value={oldPassword}
+                  onChange={(e) => setOldPassword(e.target.value)}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicNewPassword">
+                <Form.Control
+                  type="password"
+                  placeholder="Enter new password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
                   required
                 />
               </Form.Group>
               {error && <p style={{ color: 'red' }}>{error}</p>}
               {message && <Alert variant="success" onClose={() => window.location.reload()} dismissible><p>{message}</p></Alert>}
               <Button variant="primary" type="submit" className="w-100">
-                Sign up
+                Submit
               </Button>
             </Form>
             <div className="d-flex justify-content-between mt-3">
@@ -74,4 +74,4 @@ const RegisterForm = () => {
       );
 }
 
-export default RegisterForm;
+export default ResetPasswordForm;

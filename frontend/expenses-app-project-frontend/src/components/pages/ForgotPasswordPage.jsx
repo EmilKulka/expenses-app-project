@@ -1,6 +1,9 @@
+import ResetPasswordForm from "../forms/ForgotPasswordForm";
 function ForgotPasswordPage() {
     return (
-        <div>THIS IS FORGOT PASSWORD PAGE</div>
+        <div>
+            <ResetPasswordForm/>
+        </div>
     )
 }
 export default ForgotPasswordPage;

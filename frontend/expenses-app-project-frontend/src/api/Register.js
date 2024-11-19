@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_REGISTER_URL = 'http://localhost:8080/api/app-user/register';
 
 
-export const register = async (body) => {
+export const registerNewAppuser = async (body) => {
     try {
       const response = await axios.post(
         API_REGISTER_URL,

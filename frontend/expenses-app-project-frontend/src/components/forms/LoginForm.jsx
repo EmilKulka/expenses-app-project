@@ -20,16 +20,11 @@ const LoginForm = () => {
     const result = await login(params);
   
     if(result.success) {
-      setError(null);
       const userRole = localStorage.getItem("role");
-      navigate(userRole === "ADMIN" ? "/admin-dashboard" : "/app-user");
+      navigate(userRole === "ADMIN" ? "/admin-dashboard" : "/");
     } else {
       setError(result.error)
     }
-
-
-
-    
   };
 
   return (

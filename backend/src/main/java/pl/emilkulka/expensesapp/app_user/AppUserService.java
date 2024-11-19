@@ -69,6 +69,8 @@ public class AppUserService {
         appUserRepository.delete(appUser);
     }
 
+
+    // TODO: Make sure no one can change ADMIN's PASSWORD :)))))))))
     @Transactional
     public void changePassword(AppUserChangePasswordDto appUserChangePasswordDto) {
         String dtoEmail = appUserChangePasswordDto.getEmail();
