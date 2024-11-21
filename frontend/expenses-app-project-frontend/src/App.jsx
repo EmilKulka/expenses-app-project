@@ -7,6 +7,7 @@ import LoginPage from "./components/pages/LoginPage/LoginPage";
 import RegisterPage from './components/pages/RegisterPage'
 import ErrorPage from "./components/pages/ErrorPage";
 import AppUserPage from './components/pages/AppUserPage';
+import AppUserExpensesPage from './components/pages//AppUserExpensePage/AppUserExpensesPage';
 import ForgotPasswordPage from './components/pages/ForgotPasswordPage'
 
 function App() {
@@ -39,6 +40,12 @@ function App() {
         <Route path = "/" element = {
           <ProtectedRoute role = "USER">
             <AppUserPage/>
+          </ProtectedRoute>
+        }
+        />
+        <Route path = "/user/expenses" element = {
+          <ProtectedRoute role = "USER">
+            <AppUserExpensesPage/>
           </ProtectedRoute>
         }
         />
