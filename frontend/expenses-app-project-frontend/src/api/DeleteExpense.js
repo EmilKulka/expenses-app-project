@@ -4,7 +4,7 @@ const API_DELETE_EXPENSE_ENDPOINT = 'http://localhost:8080/api/expense/';
 
 export const deleteExpense = async(id) => {
     try {
-        const response = await axios.delete(API_DELETE_EXPENSE_ENDPOINT + id, {
+        await axios.delete(API_DELETE_EXPENSE_ENDPOINT + id, {
             withCredentials: true,
         });
         return { success: true};

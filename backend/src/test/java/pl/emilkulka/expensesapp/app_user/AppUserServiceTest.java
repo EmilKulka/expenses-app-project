@@ -37,11 +37,14 @@ class AppUserServiceTest {
     private PasswordEncoder passwordEncoder;
 
     private static AppUser VALID_APP_USER;
+    private static AppUser VALID_APP_ADMIN;
     private static AppUserDto VALID_APP_USER_DTO;
     private static AppUserChangePasswordDto VALID_APP_USER_CHANGE_PASSWORD_DTO;
     private final static UUID VALID_APP_USER_ID = UUID.randomUUID();
+    private final static UUID VALID_APP_ADMIN_ID = UUID.randomUUID();
     private final static UUID INVALID_APP_USER_ID = UUID.randomUUID();
     private final static String VALID_APP_USER_EMAIL = "john@mail.com";
+    private final static String VALID_APP_ADMIN_EMAIL = "foo@mail.com";
     private final static String VALID_PASSWORD = "foo";
     private final static String VALID_NEW_PASSWORD = "bar";
     private static final PasswordEncoder passwordEncoderFoo = new BCryptPasswordEncoder();
@@ -56,6 +59,15 @@ class AppUserServiceTest {
                 AppUserRole.USER
         );
         VALID_APP_USER.setId(VALID_APP_USER_ID);
+
+        VALID_APP_ADMIN = new AppUser(
+                "Foo Admin",
+                passwordEncoderFoo.encode(VALID_PASSWORD),
+                VALID_APP_USER_EMAIL,
+                AppUserRole.ADMIN
+        );
+        VALID_APP_USER.setId(VALID_APP_ADMIN_ID);
+
 
         VALID_APP_USER_DTO = new AppUserDto(
                 "John Doe",
@@ -192,6 +204,14 @@ class AppUserServiceTest {
         assertThatThrownBy(() -> appUserService.changePassword(VALID_APP_USER_CHANGE_PASSWORD_DTO))
                 .isInstanceOf(InvalidPasswordException.class)
                 .hasMessageContaining("New password cannot be the same as old password.");
+    }
+
+    @Test
+    void SHOULD_THROW_EXCEPTION_WHEN_TRYING_TO_CHANGE_ADMINS_PASSWORD() {
+        when(appUserRepository.findByEmail(VALID_APP_ADMIN_EMAIL))
+                .thenReturn(VALID_APP_ADMIN);
+
+
     }
 
     @Test

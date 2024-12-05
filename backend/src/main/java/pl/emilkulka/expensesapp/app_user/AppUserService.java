@@ -41,7 +41,7 @@ public class AppUserService {
         return appUserRepository.findAll();
     }
 
-    @Transactional
+
     public void createAppUser(AppUserDto appUserDto) {
         String email = appUserDto.getEmail();
         String userName = appUserDto.getUserName();

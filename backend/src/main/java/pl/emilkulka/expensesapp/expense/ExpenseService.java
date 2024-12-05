@@ -47,14 +47,13 @@ public class ExpenseService {
         expense.setImportant(expenseDto.isImportant());
     }
 
+    // TODO: Create new exception :),
     @Transactional
     public void deleteExpense(UUID expenseId, Principal principal) {
         AppUser appUser = appUserService.getAppUserByName(principal.getName());
-        Expense expense = getExpenseById(expenseId);
+        Expense expense = expenseRepository.findByIdAndUser(expenseId, appUser)
+                .orElseThrow(() -> new ExpenseDoesNotExistException("Expense with ID: " + expenseId + " not found."));
 
-        if(!expense.getUser().equals(appUser)) {
-            throw new ExpenseDoesNotExistException("Expense with ID: " + expenseId + " not found.");
-        }
         expenseRepository.delete(expense);
     }
 }

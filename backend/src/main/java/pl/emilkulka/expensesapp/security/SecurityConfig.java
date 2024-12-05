@@ -52,7 +52,7 @@ public class SecurityConfig {
                         // User endpoints
                         .requestMatchers("/api/app-user/expenses", "/api/expense/**").hasAuthority("USER")
                         // Public access for registration and static resources
-                        .requestMatchers("/api/app-user/register", "/css/**", "/js/**").permitAll()
+                        .requestMatchers("/api/app-user/register","/api/app-user/reset-password", "/css/**", "/js/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         // Any other requests require authentication
                         .anyRequest().authenticated()

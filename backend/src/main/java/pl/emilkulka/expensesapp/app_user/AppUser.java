@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Setter
 @Getter
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = "expenseList")
 @ToString(exclude = "expenseList")
 @NoArgsConstructor
 @Entity
@@ -29,7 +29,7 @@ public class AppUser {
     private String email;
     @Enumerated(EnumType.STRING)
     private AppUserRole userRole;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Expense> expenseList;
 
     public AppUser(String userName, String password, String email, AppUserRole userRole) {
