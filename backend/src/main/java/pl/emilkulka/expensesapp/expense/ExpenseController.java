@@ -23,14 +23,14 @@ public class ExpenseController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateExpense(@PathVariable("id") UUID id, @RequestBody @Valid ExpenseDto expenseDto) {
-        expenseService.updateExpense(id, expenseDto);
+    public ResponseEntity<String> updateExpense(@PathVariable("id") UUID id, @RequestBody @Valid ExpenseDto expenseDto, Principal principal) {
+        expenseService.updateExpense(id, expenseDto, principal);
         return ResponseEntity.status(HttpStatus.OK).body("Expense updated successfully");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteExpense(@PathVariable("id") UUID id) {
-        expenseService.deleteExpense(id);
+    public ResponseEntity<Void> deleteExpense(@PathVariable("id") UUID id, Principal principal) {
+        expenseService.deleteExpense(id, principal);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

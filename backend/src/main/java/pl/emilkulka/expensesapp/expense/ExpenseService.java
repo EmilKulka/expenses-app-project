@@ -32,8 +32,13 @@ public class ExpenseService {
     }
 
     @Transactional
-    public void updateExpense(UUID expenseId, ExpenseDto expenseDto) {
+    public void updateExpense(UUID expenseId, ExpenseDto expenseDto, Principal principal) {
         Expense expense = getExpenseById(expenseId);
+        AppUser appUser = appUserService.getAppUserByName(principal.getName());
+
+        if(!expense.getUser().equals(appUser)) {
+            throw new ExpenseDoesNotExistException("Expense with ID: " + expenseId + " not found.");
+        }
 
         expense.setDescription(expenseDto.getDescription());
         expense.setType(expenseDto.getType());
@@ -43,8 +48,13 @@ public class ExpenseService {
     }
 
     @Transactional
-    public void deleteExpense(UUID expenseId) {
+    public void deleteExpense(UUID expenseId, Principal principal) {
+        AppUser appUser = appUserService.getAppUserByName(principal.getName());
         Expense expense = getExpenseById(expenseId);
+
+        if(!expense.getUser().equals(appUser)) {
+            throw new ExpenseDoesNotExistException("Expense with ID: " + expenseId + " not found.");
+        }
         expenseRepository.delete(expense);
     }
 }

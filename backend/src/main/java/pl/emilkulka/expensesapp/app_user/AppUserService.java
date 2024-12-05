@@ -70,13 +70,16 @@ public class AppUserService {
     }
 
 
-    // TODO: Make sure no one can change ADMIN's PASSWORD :)))))))))
     @Transactional
     public void changePassword(AppUserChangePasswordDto appUserChangePasswordDto) {
         String dtoEmail = appUserChangePasswordDto.getEmail();
         String dtoOldPassword = appUserChangePasswordDto.getOldPassword();
         String dtoNewPassword = appUserChangePasswordDto.getNewPassword();
         AppUser appUser = appUserRepository.findByEmail(dtoEmail);
+
+        if(appUser.getUserRole().equals(AppUserRole.ADMIN)) {
+            throw new InvalidCredentialsException("Invalid email or password");
+        }
 
         if(appUser == null) {
             throw new InvalidCredentialsException("Invalid email or password");
