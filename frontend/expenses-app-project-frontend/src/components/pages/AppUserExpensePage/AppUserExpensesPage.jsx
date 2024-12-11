@@ -6,6 +6,7 @@ import ExpenseList from "./ExpenseList";
 import { getAppUserExpenses } from "../../../api/UserExpenses";
 import { deleteExpense } from "../../../api/DeleteExpense";
 import { addExpense } from "../../../api/AddExpense";
+import { editExpense } from "../../../api/EditExpense";
 import { Button } from "react-bootstrap";
 
 function AppUserExpensesPage() {
@@ -25,7 +26,6 @@ function AppUserExpensesPage() {
         fetchExpenses();
     }, []);
 
-    const handleShowAddModal = () => setShowAddModal(true);
     const handleCloseAddModal = () => {
         setShowAddModal(false);
         setValidationErrors([]); 
@@ -46,6 +46,7 @@ function AppUserExpensesPage() {
         const result = await deleteExpense(expenseId);
         if (result.success) {
             setUserExpenses((prev) => prev.filter((expense) => expense.id !== expenseId));
+            handleCloseDetailsModal();
         }
     };
 
@@ -63,10 +64,24 @@ function AppUserExpensesPage() {
         const result = await addExpense(newExpense);
 
         if (result.success) {
-            setUserExpenses((prev) => [...prev, newExpense]);
+            const updatedExpenses = await getAppUserExpenses();
+            if (updatedExpenses.success) {
+                setUserExpenses(updatedExpenses.data);
+            }
             handleCloseAddModal();
         } else {
             setValidationErrors(result.errors); 
+        }
+    };
+
+    const handleEditExpense = async (expenseId, updatedExpense) => {
+        const result = await editExpense(expenseId, updatedExpense); 
+        if (result.success) {
+            const updatedExpenses = await getAppUserExpenses();
+            if (updatedExpenses.success) {
+                setUserExpenses(updatedExpenses.data);
+            }
+            handleCloseDetailsModal();
         }
     };
 
@@ -75,7 +90,7 @@ function AppUserExpensesPage() {
             <Navbar />
             <div className="container mt-4">
                 <h2>Expenses</h2>
-                <Button variant="success" onClick={handleShowAddModal} className="mb-3">
+                <Button variant="success" onClick={() => setShowAddModal(true)} className="mb-3">
                     Add New Expense
                 </Button>
                 <ExpenseList
@@ -91,9 +106,10 @@ function AppUserExpensesPage() {
             />
             <ExpenseDetailsModal
                 show={showDetailsModal}
-                handleClose={handleCloseDetailsModal}
+                close={handleCloseDetailsModal}
                 onDelete = {handleDelete}
                 expense={selectedExpense}
+                onEdit={handleEditExpense}
             />
         </div>
     );

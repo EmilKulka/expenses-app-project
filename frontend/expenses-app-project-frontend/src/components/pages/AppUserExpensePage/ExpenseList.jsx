@@ -1,37 +1,12 @@
 import React from "react";
-import { ListGroup, Badge } from "react-bootstrap";
+import { ListGroup} from "react-bootstrap";
+import ExpenseItem from "./ExpenseItem";
 
 function ExpenseList({ expenses, onShowDetails }) {
     return (
         <ListGroup as="ol" numbered>
             {expenses.map((expense) => (
-                <ListGroup.Item
-                    as="li"
-                    key={expense.id}
-                    className="d-flex justify-content-between align-items-start"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => onShowDetails(expense)}
-                >
-                    <div className="ms-2 me-auto">
-                        <div className="fw-bold d-flex align-items-center">
-                            {expense.type}
-                        </div>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <div
-                            style={{
-                                minWidth: "80px",
-                                textAlign: "right",
-                                marginRight: "15px",
-                            }}
-                        >
-                            ${expense.price}
-                        </div>
-                        <Badge bg="primary" pill className="me-2">
-                            {expense.date}
-                        </Badge>
-                    </div>
-                </ListGroup.Item>
+                <ExpenseItem expense={expense} showDetails={onShowDetails} key={expense.id}></ExpenseItem>
             ))}
         </ListGroup>
     );
