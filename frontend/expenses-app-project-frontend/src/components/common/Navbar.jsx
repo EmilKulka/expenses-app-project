@@ -1,13 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../api/Logout'; 
+import { useAuth } from "../../AuthContext"
 import { Button } from 'react-bootstrap';
 
 function AppNavbar() {
     const navigate = useNavigate();
+    const {logout} = useAuth();
 
   const handleLogout = async () => {
     await logout();

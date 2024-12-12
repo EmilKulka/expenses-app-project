@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useNavigate, Link} from 'react-router-dom'
 import { Form, Button, Card } from 'react-bootstrap';
-import { login } from '../../api/Login';
+import { useAuth } from '../../AuthContext';
 
 
 const LoginForm = () => {
@@ -9,6 +9,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { login } = useAuth(); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const LoginForm = () => {
     const result = await login(params);
   
     if(result.success) {
-      const userRole = localStorage.getItem("role");
+      const userRole = result.data.role;
       navigate(userRole === "ADMIN" ? "/admin-dashboard" : "/");
     } else {
       setError(result.error)

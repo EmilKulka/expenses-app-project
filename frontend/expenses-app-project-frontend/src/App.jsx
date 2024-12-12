@@ -12,45 +12,57 @@ import ForgotPasswordPage from './components/pages/ForgotPasswordPage'
 
 function App() {
   return (
-      <Routes>
-        <Route path = "/login" element=
-        {<PublicRoute>
-          <LoginPage/>
+    <Routes>
+    <Route
+      path="/login"
+      element={
+        <PublicRoute>
+          <LoginPage />
         </PublicRoute>
-        }
-        />
-        <Route path = "/register" element=
-        {<PublicRoute>
-          <RegisterPage/>
+      }
+    />
+    <Route
+      path="/register"
+      element={
+        <PublicRoute>
+          <RegisterPage />
         </PublicRoute>
-        }
-        />
-        <Route path = "/reset-password" element=
-        {<PublicRoute>
-          <ForgotPasswordPage/>
+      }
+    />
+    <Route
+      path="/reset-password"
+      element={
+        <PublicRoute>
+          <ForgotPasswordPage />
         </PublicRoute>
-        }
-        />
-        <Route path = "/admin-dashboard" element = {
-          <ProtectedRoute role = "ADMIN">
-            <AdminPage/>
-          </ProtectedRoute>
-          }
-        />
-        <Route path = "/" element = {
-          <ProtectedRoute role = "USER">
-            <AppUserPage/>
-          </ProtectedRoute>
-        }
-        />
-        <Route path = "/user/expenses" element = {
-          <ProtectedRoute role = "USER">
-            <AppUserExpensesPage/>
-          </ProtectedRoute>
-        }
-        />
-        <Route path="*" element={<ErrorPage/>} />
-      </Routes>
+      }
+    />
+    <Route
+      path="/admin-dashboard"
+      element={
+        <ProtectedRoute role="ADMIN">
+          <AdminPage />
+        </ProtectedRoute>
+      }
+    />
+    <Route
+      path="/"
+      element={
+        <ProtectedRoute role="USER">
+          <AppUserPage />
+        </ProtectedRoute>
+      }
+    />
+    <Route
+      path="/user/expenses"
+      element={
+        <ProtectedRoute role="USER">
+          <AppUserExpensesPage />
+        </ProtectedRoute>
+      }
+    />
+    <Route path="*" element={<ErrorPage />} />
+  </Routes>
   )
 }
 

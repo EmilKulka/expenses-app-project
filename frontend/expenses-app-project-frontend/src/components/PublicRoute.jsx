@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 function PublicRoute({ children }) {
-  const userRole = localStorage.getItem("role");
+  const {user} = useAuth(); 
 
-  if (userRole) {
+  if (user) {
     return <Navigate to="/" replace />;  
   }
 
