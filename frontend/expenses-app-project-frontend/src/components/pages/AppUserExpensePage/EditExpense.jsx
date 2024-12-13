@@ -1,54 +1,72 @@
+import {Form} from "react-bootstrap";
+
+const expenseTypes = [
+    { value: "GROCERIESANDCHEMICALS", label: "Groceries and Chemicals" },
+    { value: "SHOESANDCLOTHES", label: "Shoes and Clothes" },
+    { value: "ACCESORIES", label: "Accessories" },
+    { value: "REGULARPAYMENTS", label: "Regular Payments" },
+];
+
+
 function EditExpense({editedExpense, handleEditChange}) {
     return (
         <>
-            <div className="mb-3">
-                            <label>Type</label>
-                            <input
-                                className="form-control"
-                                name="type"
-                                value={editedExpense.type || ""}
-                                onChange={handleEditChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label>Description</label>
-                            <input
-                                className="form-control"
-                                name="description"
-                                value={editedExpense.description || ""}
-                                onChange={handleEditChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label>Price</label>
-                            <input
-                                className="form-control"
-                                name="price"
-                                type="number"
-                                value={editedExpense.price || ""}
-                                onChange={handleEditChange}
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label>Date</label>
-                            <input
-                                className="form-control"
-                                name="date"
-                                type="date"
-                                value={editedExpense.date || ""}
-                                onChange={handleEditChange}
-                            />
-                        </div>
-                        <div className="mb-3 form-check">
-                            <input
-                                className="form-check-input"
-                                name="important"
-                                type="checkbox"
-                                checked={editedExpense.important || false}
-                                onChange={handleEditChange}
-                            />
-                            <label className="form-check-label">Important</label>
-                        </div>
+            <Form.Group className="mb-3">
+                <Form.Label>Type</Form.Label>
+                <Form.Select
+                    name="type"
+                    onChange={handleEditChange}
+                >
+                    <option value="">
+                        {editedExpense.type}
+                    </option>
+                    {expenseTypes.map((expenseType) => (
+                        <option key={expenseType.value} value={expenseType.value}>
+                            {expenseType.label}
+                        </option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Description</Form.Label>
+                <Form.Control 
+                    as="textarea" 
+                    name="description" 
+                    rows={3} 
+                    value={editedExpense.description} 
+                    onChange={handleEditChange} 
+                />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Price</Form.Label>
+                <Form.Control 
+                    type="number" 
+                    step="0.01" 
+                    name="price" 
+                    value={editedExpense.price}
+                    onChange={handleEditChange}
+                    required 
+                />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Date</Form.Label>
+                <Form.Control 
+                    type="date" 
+                    name="date" 
+                    value={editedExpense.date}
+                    onChange={handleEditChange}
+                    required 
+                />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Check
+                    type="checkbox" 
+                    label="Important" 
+                    name="important" 
+                    checked={editedExpense.important}
+                    onChange={handleEditChange}
+                />
+            </Form.Group>
         </>
     ) 
 }
