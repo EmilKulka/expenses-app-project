@@ -32,7 +32,7 @@ function AddExpenseForm({handleAddExpense}) {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Date</Form.Label>
-                        <Form.Control type="date" name="date" required />
+                        <Form.Control type="date" name="date" max={new Date().toISOString().split('T')[0]} required />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Check type="checkbox" label="Important" name="important" />

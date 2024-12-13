@@ -53,6 +53,7 @@ function EditExpense({editedExpense, handleEditChange}) {
                 <Form.Control 
                     type="date" 
                     name="date" 
+                    max={new Date().toISOString().split('T')[0]}
                     value={editedExpense.date}
                     onChange={handleEditChange}
                     required 
