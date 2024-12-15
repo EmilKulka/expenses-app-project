@@ -2,6 +2,7 @@ package pl.emilkulka.expensesapp.app_user;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,11 @@ public class AppUserService {
             throw new UsernameNotFoundException("User with name: " + appUserName + " not found.");
         }
         return appUser;
+    }
+    @Cacheable(value = "userRoles", key = "#username")
+    public AppUserRole getUserRole(String username) {
+        AppUser appUser = appUserRepository.findByUserName(username);
+        return appUser.getUserRole();
     }
 
     public List<AppUser> getAllAppUsers() {
