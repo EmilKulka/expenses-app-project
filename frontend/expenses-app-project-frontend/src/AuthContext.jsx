@@ -68,7 +68,9 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = async () => {
-        await axios.post('http://localhost:8080/logout');
+        await axios.post('http://localhost:8080/logout', {}, {
+            withCredentials: true
+        });
         setUser(null);
     };
 

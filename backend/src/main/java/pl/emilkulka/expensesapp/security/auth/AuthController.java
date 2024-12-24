@@ -1,10 +1,9 @@
-package pl.emilkulka.expensesapp.auth;
+package pl.emilkulka.expensesapp.security.auth;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.emilkulka.expensesapp.app_user.AppUser;
 import pl.emilkulka.expensesapp.app_user.AppUserRole;
 import pl.emilkulka.expensesapp.app_user.AppUserService;
 

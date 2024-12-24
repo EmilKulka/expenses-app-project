@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import pl.emilkulka.expensesapp.expense.Expense;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,7 +20,9 @@ import java.util.UUID;
         uniqueConstraints = {
             @UniqueConstraint(columnNames = "email"),
             @UniqueConstraint(columnNames = "userName")})
-public class AppUser {
+public class AppUser implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

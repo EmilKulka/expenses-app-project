@@ -5,8 +5,8 @@ import pl.emilkulka.expensesapp.app_user.dto.AppUserDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-15T14:53:28+0100",
-    comments = "version: 1.6.2, compiler: Eclipse JDT (IDE) 3.40.0.z20241112-1021, environment: Java 17.0.13 (Eclipse Adoptium)"
+    date = "2024-12-24T15:44:04+0100",
+    comments = "version: 1.6.2, compiler: Eclipse JDT (IDE) 3.41.0.v20241217-1506, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 public class AppUserMapperImpl implements AppUserMapper {
 
