@@ -13,6 +13,7 @@ const ExpenseDetailsModal = ({ show, expense, onDelete, onClose, onEdit }) => {
 
     const onModalClose = () => {
         setIsEditing(false);
+        setShowConfirmation(false);
         onClose();
     }
 

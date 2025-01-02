@@ -4,7 +4,7 @@ import ExpenseItem from "./ExpenseItem";
 
 function ExpenseList({ expenses, onShowDetails }) {
     return (
-        <ListGroup>
+        <ListGroup className="overflow-auto" style={{ maxHeight: '50vh' }}>
             {expenses.map((expense) => (
                 <ExpenseItem 
                     expense={expense} 

@@ -7,7 +7,6 @@ import { getAppUserExpenses } from "../../../api/UserExpenses";
 import { deleteExpense } from "../../../api/DeleteExpense";
 import { addExpense } from "../../../api/AddExpense";
 import { editExpense } from "../../../api/EditExpense";
-import { Button } from "react-bootstrap";
 
 function AppUserExpensesPage() {
     const [userExpenses, setUserExpenses] = useState([]);
@@ -28,7 +27,7 @@ function AppUserExpensesPage() {
 
     const handleCloseAddModal = () => {
         setShowAddModal(false);
-        setValidationErrors([]); 
+        setValidationErrors([]);
     };
 
     const handleShowDetailsModal = (expense) => {
@@ -41,7 +40,6 @@ function AppUserExpensesPage() {
         setShowDetailsModal(false);
     };
 
-    
     const handleDelete = async (expenseId) => {
         const result = await deleteExpense(expenseId);
         if (result.success) {
@@ -56,7 +54,7 @@ function AppUserExpensesPage() {
         const newExpense = {
             type: e.target.type.value,
             description: e.target.description.value,
-            price:e.target.price.value,
+            price: e.target.price.value,
             date: e.target.date.value,
             important: e.target.important.checked,
         };
@@ -70,12 +68,12 @@ function AppUserExpensesPage() {
             }
             handleCloseAddModal();
         } else {
-            setValidationErrors(result.errors); 
+            setValidationErrors(result.errors);
         }
     };
 
     const handleEditExpense = async (expenseId, updatedExpense) => {
-        const result = await editExpense(expenseId, updatedExpense); 
+        const result = await editExpense(expenseId, updatedExpense);
         if (result.success) {
             const updatedExpenses = await getAppUserExpenses();
             if (updatedExpenses.success) {
@@ -86,28 +84,39 @@ function AppUserExpensesPage() {
     };
 
     return (
-        <div className="">
+        <div>
             <Navbar />
-            <div className="container mt-4 ">
-                <Button variant="success" onClick={() => setShowAddModal(true)} className="mb-3">
-                    Add New Expense
-                </Button>
+            <div className="container mt-4">
                 <h2>Recent expenses</h2>
                 <ExpenseList
                     expenses={userExpenses}
                     onShowDetails={handleShowDetailsModal}
                 />
+                <div className="d-flex justify-content-center mt-4">
+                    <button
+                        className="btn btn-light rounded-circle shadow-lg "
+                        style={{
+                            width: "60px",
+                            height: "60px",
+                            fontSize: "24px",
+                            fontWeight: "bold",
+                        }}
+                        onClick={() => setShowAddModal(true)}
+                    >
+                        +
+                    </button>
+                </div>
             </div>
             <AddExpenseModal
                 show={showAddModal}
                 handleClose={handleCloseAddModal}
                 handleAddExpense={handleAddExpense}
-                validationErrors={validationErrors} 
+                validationErrors={validationErrors}
             />
             <ExpenseDetailsModal
                 show={showDetailsModal}
                 onClose={handleCloseDetailsModal}
-                onDelete = {handleDelete}
+                onDelete={handleDelete}
                 expense={selectedExpense}
                 onEdit={handleEditExpense}
             />
