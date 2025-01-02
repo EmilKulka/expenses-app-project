@@ -86,13 +86,13 @@ function AppUserExpensesPage() {
     };
 
     return (
-        <div>
+        <div className="">
             <Navbar />
-            <div className="container mt-4">
-                <h2>Expenses</h2>
+            <div className="container mt-4 ">
                 <Button variant="success" onClick={() => setShowAddModal(true)} className="mb-3">
                     Add New Expense
                 </Button>
+                <h2>Recent expenses</h2>
                 <ExpenseList
                     expenses={userExpenses}
                     onShowDetails={handleShowDetailsModal}
@@ -106,7 +106,7 @@ function AppUserExpensesPage() {
             />
             <ExpenseDetailsModal
                 show={showDetailsModal}
-                close={handleCloseDetailsModal}
+                onClose={handleCloseDetailsModal}
                 onDelete = {handleDelete}
                 expense={selectedExpense}
                 onEdit={handleEditExpense}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Alert } from "react-bootstrap";
 import EditExpense from "./EditExpense";
 
-const ExpenseDetailsModal = ({ show, expense, onDelete, close, onEdit }) => {
+const ExpenseDetailsModal = ({ show, expense, onDelete, onClose, onEdit }) => {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [editedExpense, setEditedExpense] = useState(expense || {});
@@ -10,6 +10,11 @@ const ExpenseDetailsModal = ({ show, expense, onDelete, close, onEdit }) => {
     useEffect(() => {
         setEditedExpense(expense);
     }, [expense]);
+
+    const onModalClose = () => {
+        setIsEditing(false);
+        onClose();
+    }
 
     const handleEditChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -42,7 +47,7 @@ const ExpenseDetailsModal = ({ show, expense, onDelete, close, onEdit }) => {
     if (!expense) return null;
 
     return (
-        <Modal show={show} onHide={close}>
+        <Modal show={show} onHide={() => onModalClose()}>
             <Modal.Header closeButton>
                 <Modal.Title>Expense Details</Modal.Title>
             </Modal.Header>
@@ -63,6 +68,7 @@ const ExpenseDetailsModal = ({ show, expense, onDelete, close, onEdit }) => {
                         </div>
                     </Alert>
                 ) : isEditing ? (
+                    
                     <EditExpense editedExpense={editedExpense} handleEditChange={handleEditChange}></EditExpense>
                 ) : (
                     <>

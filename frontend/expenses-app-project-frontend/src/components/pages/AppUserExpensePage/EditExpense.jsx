@@ -1,4 +1,5 @@
-import {Form} from "react-bootstrap";
+import React from 'react';
+import { Form } from "react-bootstrap";
 
 const expenseTypes = [
     { value: "GROCERIESANDCHEMICALS", label: "Groceries and Chemicals" },
@@ -7,19 +8,16 @@ const expenseTypes = [
     { value: "REGULARPAYMENTS", label: "Regular Payments" },
 ];
 
-
-function EditExpense({editedExpense, handleEditChange}) {
+function EditExpense({ editedExpense = {}, handleEditChange }) {   
     return (
         <>
             <Form.Group className="mb-3">
                 <Form.Label>Type</Form.Label>
                 <Form.Select
                     name="type"
+                    value={editedExpense?.type || ''}
                     onChange={handleEditChange}
                 >
-                    <option value="">
-                        {editedExpense.type}
-                    </option>
                     {expenseTypes.map((expenseType) => (
                         <option key={expenseType.value} value={expenseType.value}>
                             {expenseType.label}
@@ -33,7 +31,7 @@ function EditExpense({editedExpense, handleEditChange}) {
                     as="textarea" 
                     name="description" 
                     rows={3} 
-                    value={editedExpense.description} 
+                    value={editedExpense?.description || ''} 
                     onChange={handleEditChange} 
                 />
             </Form.Group>
@@ -43,7 +41,7 @@ function EditExpense({editedExpense, handleEditChange}) {
                     type="number" 
                     step="0.01" 
                     name="price" 
-                    value={editedExpense.price}
+                    value={editedExpense?.price || ''} 
                     onChange={handleEditChange}
                     required 
                 />
@@ -54,7 +52,7 @@ function EditExpense({editedExpense, handleEditChange}) {
                     type="date" 
                     name="date" 
                     max={new Date().toISOString().split('T')[0]}
-                    value={editedExpense.date}
+                    value={editedExpense?.date || ''} 
                     onChange={handleEditChange}
                     required 
                 />
@@ -64,12 +62,12 @@ function EditExpense({editedExpense, handleEditChange}) {
                     type="checkbox" 
                     label="Important" 
                     name="important" 
-                    checked={editedExpense.important}
+                    checked={editedExpense?.important || false}
                     onChange={handleEditChange}
                 />
             </Form.Group>
         </>
-    ) 
+    );
 }
 
 export default EditExpense;
