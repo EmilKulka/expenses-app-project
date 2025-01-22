@@ -4,27 +4,35 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
+import pl.emilkulka.expensesapp.app_user.AppUser;
+import pl.emilkulka.expensesapp.app_user.AppUserMapper;
+import pl.emilkulka.expensesapp.app_user.AppUserRepository;
+import pl.emilkulka.expensesapp.app_user.dto.AppUserLoginResponseDto;
+import pl.emilkulka.expensesapp.common.ApiResponse;
 
 import java.io.IOException;
-import java.util.*;
 
 @Component
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+    private final AppUserRepository appUserRepository;
+    private final AppUserMapper appUserMapper = AppUserMapper.INSTANCE;
+
+    public CustomAuthenticationSuccessHandler(AppUserRepository appUserRepository) {
+        this.appUserRepository = appUserRepository;
+    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        Object principal = authentication.getPrincipal();
+        String userName = ((AppUserDetails) principal).getUsername();
+        AppUser appUser = appUserRepository.findByUserName(userName);
+        AppUserLoginResponseDto appUserLoginResponseDto = appUserMapper.toAppUserLoginResponseDto(appUser);
 
-        String role = authorities.isEmpty() ? null : authorities.iterator().next().getAuthority();
+        ApiResponse<AppUserLoginResponseDto> successData = new ApiResponse<>("success", "Successfully logged in", appUserLoginResponseDto);
 
         response.setStatus(HttpServletResponse.SC_OK);
-        Map<String, Object> successData = new HashMap<>();
-        successData.put("message", "Successfully logged in");
-        successData.put("role", role);
-
         response.setContentType("application/json");
         response.getWriter().write(new ObjectMapper().writeValueAsString(successData));
     }

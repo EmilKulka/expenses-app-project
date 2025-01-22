@@ -5,7 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bf1736f-06c3-4a0e-b1ed-3ffdf80f210e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/common/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_admin/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_user/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/app_user/AppUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/expense/ExpenseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pl/emilkulka/expensesapp/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/guards/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/guards/auth.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/guards/role.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/guards/role.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/models/expense.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/models/expense.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/models/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/services/expense.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/core/services/expense.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/login/login.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/reset-password/reset-password.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/reset-password/reset-password.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/reset-password/reset-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/auth/reset-password/reset-password.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-details/expense-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-details/expense-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-details/expense-details.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-details/expense-details.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-details/expense-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-details/expense-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-form/expense-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-form/expense-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-form/expense-form.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-form/expense-form.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-form/expense-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-form/expense-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-list/expense-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-list/expense-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-list/expense-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-list/expense-list.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-list/expense-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/features/expenses/expense-list/expense-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/shared/interceptors/auth.interceptor.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/app/shared/interceptors/auth.interceptor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/expenses-app-project-frontend/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,41 +74,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.backend/Dockerfile builder.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.pl.emilkulka.expensesapp.ExpenseTest in expenses-app.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.pl.emilkulka.expensesapp.validator.expense in expenses-app.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.validEmailTest.containsAtSign.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.validEmailTest.containsOneAtSign.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.validEmailTest.isEmailValid.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.validEmailTest.itDenyInvalidEmailFormat.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.validEmailTest.validEmailFormat.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.validExpenseDateTest.itDenyDateFromFuture.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.validExpenseTypeTest.isExpenseTypeValid.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.validExpenseTypeTest.itDenyInvalidType.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ExpensesAppApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/emil5/IdeaProjects/expenses-app/backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.backend/Dockerfile builder.executor": "Run",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "HTTP Request.generated-requests | #4.executor": "Run",
+    "JUnit.pl.emilkulka.expensesapp.ExpenseTest in expenses-app.executor": "Run",
+    "JUnit.pl.emilkulka.expensesapp.validator.expense in expenses-app.executor": "Run",
+    "JUnit.validEmailTest.containsAtSign.executor": "Run",
+    "JUnit.validEmailTest.containsOneAtSign.executor": "Run",
+    "JUnit.validEmailTest.isEmailValid.executor": "Run",
+    "JUnit.validEmailTest.itDenyInvalidEmailFormat.executor": "Run",
+    "JUnit.validEmailTest.validEmailFormat.executor": "Debug",
+    "JUnit.validExpenseDateTest.itDenyDateFromFuture.executor": "Run",
+    "JUnit.validExpenseTypeTest.isExpenseTypeValid.executor": "Debug",
+    "JUnit.validExpenseTypeTest.itDenyInvalidType.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ExpensesAppApplication.executor": "Run",
+    "git-widget-placeholder": "frontend/feature",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/emil5/Desktop/expenses-app-project/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="pl.emilkulka.expensesapp.expense.exception" />
@@ -212,6 +245,7 @@
       <workItem from="1733430009084" duration="6137000" />
       <workItem from="1733494321320" duration="1220000" />
       <workItem from="1734262680310" duration="436000" />
+      <workItem from="1737542555626" duration="122000" />
     </task>
     <servers />
   </component>

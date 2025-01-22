@@ -1,0 +1,82 @@
+.user-management {
+  $table-header-bg: #f8f9fa;
+  $table-hover-color: #f5f5f5;
+  $action-btn-spacing: 0.5rem;
+
+  .table {
+    thead {
+      th {
+        background-color: $table-header-bg;
+        border-bottom: 2px solid darken($table-header-bg, 10%);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+    }
+
+    tbody {
+      tr {
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: $table-hover-color;
+        }
+
+        td {
+          vertical-align: middle;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  .btn-group {
+    .btn {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+      
+      &.btn-primary {
+        &:hover {
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+      }
+
+      &.btn-danger {
+        &:hover {
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+      }
+    }
+  }
+
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin: 2rem auto;
+  }
+
+  .alert {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .table {
+      thead th {
+        font-size: 0.8rem;
+      }
+
+      tbody td {
+        font-size: 0.85rem;
+      }
+
+      .btn-group {
+        .btn {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

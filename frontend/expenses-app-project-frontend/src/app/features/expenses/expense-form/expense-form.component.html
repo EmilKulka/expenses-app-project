@@ -1,1 +1,112 @@
-<p>expense-form works!</p>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h2>{{ isEditMode ? 'Edit Expense' : 'Add New Expense' }}</h2>
+        </div>
+        <div class="card-body">
+          @if (error) {
+            <div class="alert alert-danger">{{ error }}</div>
+          }
+
+          <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="type" class="form-label">Type</label>
+              <select 
+                class="form-select" 
+                id="type" 
+                formControlName="type"
+                [class.is-invalid]="expenseForm.get('type')?.invalid && expenseForm.get('type')?.touched"
+              >
+                <option value="">Select type</option>
+                <option *ngFor="let type of expenseTypes" [value]="type">
+                  {{type}}
+                </option>
+              </select>
+              @if (expenseForm.get('type')?.invalid && expenseForm.get('type')?.touched) {
+                <div class="invalid-feedback">Please select an expense type</div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea 
+                class="form-control" 
+                id="description" 
+                formControlName="description"
+                rows="3"
+                [class.is-invalid]="expenseForm.get('description')?.invalid && expenseForm.get('description')?.touched"
+              ></textarea>
+              @if (expenseForm.get('description')?.invalid && expenseForm.get('description')?.touched) {
+                <div class="invalid-feedback">Description is required</div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input 
+                type="number" 
+                class="form-control" 
+                id="price" 
+                formControlName="price"
+                step="0.01"
+                [class.is-invalid]="expenseForm.get('price')?.invalid && expenseForm.get('price')?.touched"
+              >
+              @if (expenseForm.get('price')?.invalid && expenseForm.get('price')?.touched) {
+                <div class="invalid-feedback">Valid price is required</div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label for="date" class="form-label">Date</label>
+              <input 
+                type="date" 
+                class="form-control" 
+                id="date" 
+                formControlName="date"
+                [max]="maxDate"
+                [class.is-invalid]="expenseForm.get('date')?.invalid && expenseForm.get('date')?.touched"
+              >
+              @if (expenseForm.get('date')?.touched && expenseForm.get('date')?.errors?.['futureDate']) {
+                <div class="invalid-feedback">Date cannot be in the future</div>
+              } @else if (expenseForm.get('date')?.invalid && expenseForm.get('date')?.touched) {
+                <div class="invalid-feedback">Valid date is required</div>
+              }
+            </div>
+
+            <div class="mb-3 form-check">
+              <input 
+                type="checkbox" 
+                class="form-check-input" 
+                id="important" 
+                formControlName="important"
+              >
+              <label class="form-check-label" for="important">Important</label>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button 
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="expenseForm.invalid || loading"
+              >
+                @if (loading) {
+                  <span class="spinner-border spinner-border-sm me-1"></span>
+                }
+                {{ isEditMode ? 'Update' : 'Add' }} Expense
+              </button>
+              <button 
+                type="button" 
+                class="btn btn-secondary"
+                (click)="onCancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

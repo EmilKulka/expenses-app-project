@@ -1,0 +1,20 @@
+@if (isLoggedIn$ | async) {
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" routerLink="/expenses">
+          Expense Tracker
+        </a>
+        
+        <button 
+          class="logout-btn" 
+          (click)="onLogout()"
+          [disabled]="loading"
+        >
+          @if (loading) {
+            <span class="spinner-border spinner-border-sm"></span>
+          }
+          Logout
+        </button>
+      </div>
+    </nav>
+  }

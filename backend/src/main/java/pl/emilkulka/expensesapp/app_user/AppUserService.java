@@ -44,9 +44,8 @@ public class AppUserService {
     }
 
     public List<AppUser> getAllAppUsers() {
-        return appUserRepository.findAll();
+        return appUserRepository.findAppUserByUserRoleEquals(AppUserRole.USER);
     }
-
 
     public void createAppUser(AppUserDto appUserDto) {
         String email = appUserDto.getEmail();

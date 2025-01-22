@@ -1,0 +1,32 @@
+@import '../../../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    
+    .card-header {
+      background-color: $primary;
+      color: white;
+      
+      h2 {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+      }
+    }
+    
+    dl {
+      margin-bottom: 2rem;
+      
+      dt {
+        font-weight: 600;
+        color: $gray-700;
+      }
+      
+      dd {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  
+  .badge {
+    font-size: 0.875rem;
+  }

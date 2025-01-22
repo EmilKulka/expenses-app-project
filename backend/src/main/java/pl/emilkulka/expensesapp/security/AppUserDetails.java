@@ -17,7 +17,6 @@ import java.util.Collections;
 public class AppUserDetails implements UserDetails {
 
     private AppUser appUser;
-
     private String username;
     private boolean enabled;
     private boolean accountNonExpired;
@@ -39,7 +38,7 @@ public class AppUserDetails implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities()   {
         return authorities;
     }
 
@@ -53,7 +52,7 @@ public class AppUserDetails implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
+    public String getUsername()  {
         return username;
     }
 

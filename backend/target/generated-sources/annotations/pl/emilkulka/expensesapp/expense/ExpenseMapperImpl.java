@@ -4,8 +4,8 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-15T13:19:27+0100",
-    comments = "version: 1.6.2, compiler: Eclipse JDT (IDE) 3.41.0.v20241217-1506, environment: Java 17.0.13 (Eclipse Adoptium)"
+    date = "2025-01-22T14:59:53+0100",
+    comments = "version: 1.6.2, compiler: javac, environment: Java 21 (Oracle Corporation)"
 )
 public class ExpenseMapperImpl implements ExpenseMapper {
 

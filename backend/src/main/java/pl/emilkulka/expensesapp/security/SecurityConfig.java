@@ -31,6 +31,8 @@ public class SecurityConfig {
 
     private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
+    private CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -41,8 +43,9 @@ public class SecurityConfig {
         auth.userDetailsService(appUserDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
@@ -53,7 +56,7 @@ public class SecurityConfig {
                         // User endpoints
                         .requestMatchers("/api/app-user/expenses", "/api/expense/**").hasAuthority("USER")
                         // Public access for registration and static resources
-                        .requestMatchers("/api/app-user/register","/api/app-user/reset-password", "/app-user/verify","/css/**", "/js/**").permitAll()
+                        .requestMatchers("/api/app-user/register", "/api/app-user/reset-password", "/app-user/verify", "/css/**", "/js/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         // Any other requests require authentication
                         .anyRequest().authenticated()
@@ -74,6 +77,9 @@ public class SecurityConfig {
                         })
                         .deleteCookies("SESSION")
                         .permitAll()
+                )
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(customAuthenticationEntryPoint)
                 );
 
         return http.build();
@@ -82,7 +88,7 @@ public class SecurityConfig {
     @Bean
     UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowCredentials(true);
         configuration.addAllowedHeader("*");

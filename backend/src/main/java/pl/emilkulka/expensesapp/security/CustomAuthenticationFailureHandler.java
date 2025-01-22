@@ -6,25 +6,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
+import pl.emilkulka.expensesapp.common.ApiResponse;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
+        ApiResponse<Object> apiResponse = new ApiResponse<>("failure", "Invalid email or password", null);
+
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-
-        // Create a JSON response with an error message
-        Map<String, String> errorData = new HashMap<>();
-        errorData.put("error", "Invalid username or password");
-
-        // Send JSON response
         response.setContentType("application/json");
-        response.getWriter().write(new ObjectMapper().writeValueAsString(errorData));
+        response.getWriter().write(new ObjectMapper().writeValueAsString(apiResponse));
     }
 
 }
