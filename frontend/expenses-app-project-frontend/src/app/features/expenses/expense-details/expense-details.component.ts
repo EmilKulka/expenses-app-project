@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ExpenseService } from '../../../core/services/expense.service';
-import { Expense } from '../../../core/models/expense';
+import { Expense } from '../../../core/models/expense.model';
 
 @Component({
   selector: 'app-expense-details',

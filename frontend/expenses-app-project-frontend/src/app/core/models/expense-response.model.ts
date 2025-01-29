@@ -1,8 +1,8 @@
-import { Expense } from "./expense";
+import { Expense } from "./expense.model";
 
 export interface ExpenseResponse {
     status: string;
     message: string;
-    data: Expense[] | null;
+    data: Expense[] | [];
   }
   

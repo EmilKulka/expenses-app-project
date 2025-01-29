@@ -4,7 +4,6 @@
         <div class="card mt-5">
           <div class="card-body">
             <h2 class="text-center mb-4">Login</h2>
-            
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -22,7 +21,6 @@
                   Please enter a valid email address
                 </div>
               </div>
-  
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input 
@@ -36,18 +34,15 @@
                   Password is required
                 </div>
               </div>
-  
               <div class="alert alert-danger" *ngIf="error">
                 {{ error }}
               </div>
-  
               <button 
                 type="submit" 
                 class="btn btn-primary w-100" 
                 [disabled]="loginForm.invalid || loading">
                 {{ loading ? 'Loading...' : 'Login' }}
               </button>
-  
               <div class="mt-3 text-center">
                 <a routerLink="/register" class="me-3">Register</a>
                 <a routerLink="/reset-password">Forgot Password?</a>

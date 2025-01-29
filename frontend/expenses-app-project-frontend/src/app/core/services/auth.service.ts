@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthResponse } from '../models/auth.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_URL = 'http://localhost:8080';
+  private http = inject(HttpClient);
+  private readonly API_URL = environment.apiUrl;
   private userRoleSubject = new BehaviorSubject<string | null>(localStorage.getItem('userRole'));
-  userRole$ = this.userRoleSubject.asObservable();
-
-  constructor(private http: HttpClient) {}
-  
+  userRole$ = this.userRoleSubject.asObservable();  
 
   login(username: string, password: string): Observable<AuthResponse> {
     const body = new URLSearchParams();
@@ -50,11 +49,11 @@ export class AuthService {
 
 
 register(userData: { userName: string; email: string; password: string }): Observable<any> {
-  return this.http.post(`${this.API_URL}/api/app-user/register`, userData);
+  return this.http.post(`${this.API_URL}/api/app-users`, userData);
 }
 
 resetPassword(resetData: { email: string; oldPassword: string; newPassword: string }): Observable<any> {
-  return this.http.put(`${this.API_URL}/api/app-user/reset-password`, resetData);
+  return this.http.patch(`${this.API_URL}/api/app-users/reset-password`, resetData);
 }
 
 }

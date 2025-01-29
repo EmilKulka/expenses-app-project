@@ -3,8 +3,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="card mt-5">
           <div class="card-body">
-            <h2 class="text-center mb-4">Register</h2>
-            
+            <h2 class="text-center mb-4">Register</h2>           
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
               <div class="mb-3">
                 <label for="userName" class="form-label">Username</label>
@@ -19,7 +18,6 @@
                   Username is required
                 </div>
               </div>
-  
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input 
@@ -36,7 +34,6 @@
                   Please enter a valid email address
                 </div>
               </div>
-  
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input 
@@ -53,18 +50,19 @@
                   Password must be at least 6 characters long
                 </div>
               </div>
-  
               <div class="alert alert-danger" *ngIf="error">
                 {{ error }}
               </div>
-  
+              <div class="alert alert-success alert-dismissible" *ngIf="successMessage">
+                {{ successMessage }}
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+              </div>
               <button 
                 type="submit" 
                 class="btn btn-primary w-100" 
                 [disabled]="registerForm.invalid || loading">
                 {{ loading ? 'Loading...' : 'Register' }}
               </button>
-  
               <div class="mt-3 text-center">
                 <a routerLink="/login">Already have an account? Login</a>
               </div>

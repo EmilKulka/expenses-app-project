@@ -2,7 +2,6 @@ package pl.emilkulka.expensesapp.app_user;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,22 +24,18 @@ public class AppUserService {
 
     private final PasswordEncoder passwordEncoder;
     private final AppUserMapper appUserMapper = AppUserMapper.INSTANCE;
+
     public AppUser getAppUserById(UUID id) {
         return appUserRepository.findById(id)
-                .orElseThrow(()-> new UserDoesNotExistException("User with ID: " + id + " not found."));
+                .orElseThrow(() -> new UserDoesNotExistException("User with ID: " + id + " not found."));
     }
 
     public AppUser getAppUserByName(String appUserName) {
         AppUser appUser = appUserRepository.findByUserName(appUserName);
-        if(appUser == null) {
+        if (appUser == null) {
             throw new UsernameNotFoundException("User with name: " + appUserName + " not found.");
         }
         return appUser;
-    }
-    @Cacheable(value = "userRoles", key = "#username")
-    public AppUserRole getUserRole(String username) {
-        AppUser appUser = appUserRepository.findByUserName(username);
-        return appUser.getUserRole();
     }
 
     public List<AppUser> getAllAppUsers() {
@@ -51,10 +46,10 @@ public class AppUserService {
         String email = appUserDto.getEmail();
         String userName = appUserDto.getUserName();
 
-        if(appUserRepository.existsAppUserByEmail(email)) {
+        if (appUserRepository.existsAppUserByEmail(email)) {
             throw new UserWithGivenEmailAlreadyExistsException("User with e-mail: " + email + " already exists.");
         }
-        if(appUserRepository.existsAppUserByUserName(userName)) {
+        if (appUserRepository.existsAppUserByUserName(userName)) {
             throw new UserWithGivenUserNameAlreadyExistsException("User with name: " + userName + " already exists.");
         }
 
@@ -82,21 +77,21 @@ public class AppUserService {
         String dtoNewPassword = appUserChangePasswordDto.getNewPassword();
         AppUser appUser = appUserRepository.findByEmail(dtoEmail);
 
-        if(appUser.getUserRole().equals(AppUserRole.ADMIN)) {
+        if (appUser.getUserRole().equals(AppUserRole.ADMIN)) {
             throw new InvalidCredentialsException("Invalid email or password");
         }
 
-        if(appUser == null) {
+        if (appUser == null) {
             throw new InvalidCredentialsException("Invalid email or password");
         }
 
         String appUserPassword = appUser.getPassword();
 
-        if(!passwordEncoder.matches(dtoOldPassword, appUserPassword)) {
+        if (!passwordEncoder.matches(dtoOldPassword, appUserPassword)) {
             throw new InvalidCredentialsException("Invalid email or password");
         }
 
-        if(passwordEncoder.matches(dtoNewPassword, appUserPassword)) {
+        if (passwordEncoder.matches(dtoNewPassword, appUserPassword)) {
             throw new InvalidPasswordException("New password cannot be the same as old password.");
         }
 

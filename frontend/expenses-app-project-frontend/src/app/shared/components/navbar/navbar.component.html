@@ -1,20 +1,24 @@
-@if (isLoggedIn$ | async) {
-    <nav class="navbar">
-      <div class="container">
-        <a class="navbar-brand" routerLink="/expenses">
-          Expense Tracker
-        </a>
-        
-        <button 
-          class="logout-btn" 
-          (click)="onLogout()"
-          [disabled]="loading"
-        >
+@if (isLoggedIn$ | async; as role) {
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/expenses">Expense Tracker</a>
+      
+      <div class="d-flex align-items-center">
+        @if (role === 'USER') {
+          <a class="nav-link me-3" routerLink="/contact">Contact Us</a>
+          <a class="nav-link me-3" routerLink="/contact/my-messages">My Messages</a>
+        }
+        @if (role === 'ADMIN') {
+          <a class="nav-link me-3" routerLink="/admin">Users</a>
+          <a class="nav-link me-3" routerLink="/admin/messages">Messages</a>
+        }
+        <button class="logout-btn" (click)="onLogout()" [disabled]="loading">
           @if (loading) {
             <span class="spinner-border spinner-border-sm"></span>
           }
           Logout
         </button>
       </div>
-    </nav>
-  }
+    </div>
+  </nav>
+}

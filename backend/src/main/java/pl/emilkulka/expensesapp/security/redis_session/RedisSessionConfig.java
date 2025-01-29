@@ -1,4 +1,4 @@
-package pl.emilkulka.expensesapp.security.auth;
+package pl.emilkulka.expensesapp.security.redis_session;
 
 
 import com.fasterxml.jackson.databind.DeserializationFeature;

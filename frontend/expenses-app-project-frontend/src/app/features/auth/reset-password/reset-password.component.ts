@@ -15,6 +15,7 @@ import { ErrorResponse } from '../../../core/models/error.model';
 export class ResetPasswordComponent {
   resetForm: FormGroup;
   error: string = '';
+  successMessage: string = '';
   loading: boolean = false;
 
   constructor(
@@ -33,11 +34,12 @@ export class ResetPasswordComponent {
     if (this.resetForm.valid) {
       this.loading = true;
       this.error = '';
+      this.successMessage = '';
       
       this.authService.resetPassword(this.resetForm.value).subscribe({
-        next: () => {
+        next: (response) => {
+          this.successMessage = response.message;
           this.loading = false;
-          this.router.navigate(['/login']);
         },
         error: (error: { error: ErrorResponse }) => {
           this.loading = false;
@@ -46,5 +48,10 @@ export class ResetPasswordComponent {
         }
       });
     }
+  }
+
+  closeAlert(): void {
+    this.successMessage = '';
+    this.router.navigate(['/login']);
   }
 }

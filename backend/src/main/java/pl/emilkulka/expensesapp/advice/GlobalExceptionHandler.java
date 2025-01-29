@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import pl.emilkulka.expensesapp.app_user.exception.*;
+import pl.emilkulka.expensesapp.contact.ContactMessageNotFoundException;
 import pl.emilkulka.expensesapp.expense.exception.ExpenseDoesNotExistException;
 
 import java.time.LocalDateTime;
@@ -40,7 +41,8 @@ public class GlobalExceptionHandler {
             UserDoesNotExistException.class,
             UserWithGivenEmailAlreadyExistsException.class,
             UserWithGivenUserNameAlreadyExistsException.class,
-            ExpenseDoesNotExistException.class})
+            ExpenseDoesNotExistException.class,
+            ContactMessageNotFoundException.class})
     public ResponseEntity<ErrorDetails> handleInvalidCredentialsException(Exception ex) {
         List<String> errorMessages = new ArrayList<>();
         errorMessages.add(ex.getMessage());

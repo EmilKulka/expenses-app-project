@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2>My Messages</h2>
+  <div *ngIf="loading" class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+  <div *ngIf="!loading && !error" class="messages-container">
+    <table class="table table-striped table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>Type</th>
+          <th>Subject</th>
+          <th>Content</th>
+          <th>Status</th>
+          <th>Reply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let message of messages">
+          <td>{{ message.type }}</td>
+          <td>{{ message.subject }}</td>
+          <td>{{ message.content }}</td>
+          <td>
+            <span class="badge" 
+                  [ngClass]="{'bg-warning': !message.resolved, 'bg-success': message.resolved}">
+              {{message.resolved ? 'Resolved' : 'Pending'}}
+            </span>
+          </td>
+          <td>
+            <div *ngIf="message.replyContent" class="message-reply">
+              {{ message.replyContent }}
+            </div>
+            <div *ngIf="!message.replyContent" class="text-muted">
+              No reply yet
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

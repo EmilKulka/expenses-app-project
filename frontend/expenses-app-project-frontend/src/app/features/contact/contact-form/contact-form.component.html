@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <h2>Contact Us</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Type</label>
+        <select class="form-select" formControlName="type">
+          <option value="Technical issue">Technical Issue</option>
+          <option value="Feature request">Feature Request</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Subject</label>
+        <input type="text" class="form-control" formControlName="subject">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" rows="4" formControlName="content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid || loading">
+        @if (loading) {
+          <span class="spinner-border spinner-border-sm"></span>
+        }
+        Send Message
+      </button>
+    </form>
+  </div>

@@ -3,6 +3,7 @@ package pl.emilkulka.expensesapp.app_user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import pl.emilkulka.expensesapp.contact.ContactMessage;
 import pl.emilkulka.expensesapp.expense.Expense;
 
 import java.io.Serial;
@@ -35,6 +36,8 @@ public class AppUser implements Serializable {
     private AppUserRole userRole;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Expense> expenseList;
+    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<ContactMessage> contactMessageList;
 
     public AppUser(String userName, String password, String email, AppUserRole userRole) {
         this.userName = userName;

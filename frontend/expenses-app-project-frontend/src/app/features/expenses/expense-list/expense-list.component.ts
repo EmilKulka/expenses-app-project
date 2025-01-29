@@ -1,8 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ExpenseService } from '../../../core/services/expense.service';
-import { Expense } from '../../../core/models/expense';
+import { Expense } from '../../../core/models/expense.model';
+import { finalize, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-expense-list',
@@ -11,7 +12,8 @@ import { Expense } from '../../../core/models/expense';
   templateUrl: './expense-list.component.html',
   styleUrl: './expense-list.component.scss'
 })
-export class ExpenseListComponent implements OnInit {
+export class ExpenseListComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
   private expenseService = inject(ExpenseService);
   private router = inject(Router);
 
@@ -23,20 +25,28 @@ export class ExpenseListComponent implements OnInit {
     this.loadExpenses();
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   loadExpenses(): void {
     this.loading = true;
-    this.expenseService.getExpenses().subscribe({
-      next: (response) => {
-        if (response.status === 'success' && response.data) {
-          this.expenses = response.data;
+    this.expenseService.getExpenses()
+      .pipe(
+        takeUntil(this.destroy$),
+        finalize(() => this.loading = false)
+      )
+      .subscribe({
+        next: (response) => {
+          if (response.status === 'success' && response.data) {
+            this.expenses = response.data;
+          }
+        },
+        error: (error) => {
+          this.error = 'Failed to load expenses';
+          console.error(error)
         }
-        this.loading = false;
-      },
-      error: (error) => {
-        this.error = 'Failed to load expenses';
-        this.loading = false;
-        console.error(error)
-      }
     });
   }
 

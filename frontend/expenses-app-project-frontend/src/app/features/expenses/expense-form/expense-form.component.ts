@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ExpenseService } from '../../../core/services/expense.service';
-import { ExpenseType } from '../../../core/models/expense-type';
+import { ExpenseType } from '../../../core/models/expense-type.model';
 @Component({
   selector: 'app-expense-form',
   standalone: true,

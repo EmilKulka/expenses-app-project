@@ -45,7 +45,7 @@ export class LoginComponent {
         },
         error: (error) => {
           this.loading = false;
-          this.error = error.message;
+          this.error = error.error.message;
           console.error('Login error:', error);
         }
       });

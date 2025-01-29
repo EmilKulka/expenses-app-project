@@ -1,7 +1,7 @@
 import { finalize, Subject, takeUntil } from "rxjs";
 import { UserService } from "../../../core/services/user.service";
 import { Component } from "@angular/core";
-import { User2 } from "../../../core/models/user2";
+import { User2 } from "../../../core/models/user.model";
 import { CommonModule } from "@angular/common";
 
 @Component({

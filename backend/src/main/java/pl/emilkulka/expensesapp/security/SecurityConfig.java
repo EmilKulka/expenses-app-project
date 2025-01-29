@@ -22,6 +22,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -52,12 +53,25 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         // Admin endpoints
-                        .requestMatchers("/api/admin/users/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/app-users").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/app-users/{id}").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/contact/unresolved").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/contact/{messageId}/reply").hasAuthority("ADMIN")
+
                         // User endpoints
-                        .requestMatchers("/api/app-user/expenses", "/api/expense/**").hasAuthority("USER")
-                        // Public access for registration and static resources
-                        .requestMatchers("/api/app-user/register", "/api/app-user/reset-password", "/app-user/verify", "/css/**", "/js/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/app-users/expenses").hasAuthority("USER")
+                        .requestMatchers(HttpMethod.POST, "/api/expenses").hasAuthority("USER")
+                        .requestMatchers(HttpMethod.PUT, "/api/expenses/{id}").hasAuthority("USER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/expenses/{id}").hasAuthority("USER")
+                        .requestMatchers(HttpMethod.POST, "/api/contact").hasAuthority("USER")
+                        .requestMatchers(HttpMethod.GET, "/api/contact/user-messages").hasAuthority("USER")
+
+                        // Public endpoints
+                        .requestMatchers(HttpMethod.POST, "/api/app-users").permitAll()
+                        .requestMatchers(HttpMethod.PATCH, "/api/app-users/reset-password").permitAll()
+                        .requestMatchers("/css/**", "/js/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         // Any other requests require authentication
                         .anyRequest().authenticated()
                 )
@@ -88,8 +102,8 @@ public class SecurityConfig {
     @Bean
     UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowCredentials(true);
         configuration.addAllowedHeader("*");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

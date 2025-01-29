@@ -19,7 +19,12 @@ export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./features/admin/admin.routes')
-    .then(r => r.ADMIN_ROUTES)
+      .then(r => r.ADMIN_ROUTES)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./features/contact/contact.routes')
+      .then(r => r.CONTACT_ROUTES)
   },
   {
     path: '**', 
